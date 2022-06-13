@@ -1,31 +1,29 @@
+from tkinter.font import ROMAN
+
+
 def finalMarks(n,initialMarks):
     roundMarks = []
-    j = 0
     for i in range(n):
-        for k in range(1,11):
-            j = initialMarks[i] + k
-            if initialMarks[i] < 38:
-                roundMarks.append(initialMarks[i])
-                break
-            elif j%5 == 0:
-                if j-initialMarks[i] < 3:
-                    roundMarks.append(j)
-                    break
-                else:
-                    roundMarks.append(initialMarks[i])
-                    break
+        if initialMarks[i] < 38:
+            roundMarks.append(initialMarks[i])
+        elif ((initialMarks[i]//5+1)*5)-initialMarks[i] < 3:
+            roundMarks.append(((initialMarks[i]//5+1)*5))
+        else:
+            roundMarks.append(initialMarks[i])
+    
     print(roundMarks)
 
 
-n = int(input('enter number of students::'))
-marks = []
-for _ in range(n):
-    marks.append(int(input('enter marks:')))
-
-finalMarks(n,marks)
 
 
+if __name__ == "__main__":
 
+    n = int(input('enter number of students::'))
+    marks = []
+    for _ in range(n):
+        marks.append(int(input('enter marks:')))
+
+    finalMarks(n,marks)
 
 
 
@@ -49,22 +47,16 @@ import sys
 #
 
 def gradingStudents(grades_count,grades):
-        finalMarks = []
-        j = 0
-        for i in range(grades_count):
-            for k in range(1,11):
-                j = grades[i] + k
-                if grades[i] < 38:
-                    finalMarks.append(grades[i])
-                    break
-                elif j%5 ==0:
-                    if j-grades[i] < 3:
-                        finalMarks.append(j)
-                        break
-                    else:
-                        finalMarks.append(grades[i])
-                        break
-        return finalMarks
+        roundMarks = []
+    for i in range(n):
+        if initialMarks[i] < 38:
+            roundMarks.append(initialMarks[i])
+        elif ((initialMarks[i]//5+1)*5)-initialMarks[i] < 3:
+            roundMarks.append(((initialMarks[i]//5+1)*5))
+        else:
+            roundMarks.append(initialMarks[i])
+
+    print(roundMarks)
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
